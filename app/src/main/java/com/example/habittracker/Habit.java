@@ -71,7 +71,7 @@ public class Habit {
                 boolean completed = cursor.getInt(completedIndex) == 1;
 
                 cursor.close();
-                return new Habit(name, completed);
+                return new Habit(habitId, name, completed);
             } else {
                 // TODO: handle this case better...
                 cursor.close();
@@ -82,7 +82,8 @@ public class Habit {
         return null;
     }
 
-    private Habit(String name, boolean completed) {
+    private Habit(long id, String name, boolean completed) {
+        this.id = id;
         this.name = name;
         this.completed = completed;
     }
