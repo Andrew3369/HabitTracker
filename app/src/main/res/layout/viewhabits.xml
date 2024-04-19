@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.habittracker.ViewHabits">
 
-    <!-- Trips list -->
-
+    <!-- Habits list -->
     <ListView
         android:id="@+id/viewhabits_listView"
         android:layout_width="match_parent"
@@ -16,12 +15,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Flight searching -->
-    <WebView
-        android:id="@+id/viewhabits_searchWebView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
