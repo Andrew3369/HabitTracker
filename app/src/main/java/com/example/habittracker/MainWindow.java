@@ -20,12 +20,15 @@ public class MainWindow extends AppCompatActivity
     Button startHabit = null; // start
     Button viewHabits = null; // view habits
 
+    private static DatabaseHelper databaseHelper;
 
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainwindow);
 
+        // Create db helper
+        databaseHelper = new DatabaseHelper(this);
 
         startHabit = findViewById(R.id.addHabits);
         if (startHabit == null)
@@ -43,5 +46,9 @@ public class MainWindow extends AppCompatActivity
                 }
             });
         }
+    }
+
+    public static DatabaseHelper getDatabaseHelper() {
+        return databaseHelper;
     }
 }

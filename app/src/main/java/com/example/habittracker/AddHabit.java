@@ -17,10 +17,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddHabit extends AppCompatActivity
@@ -28,9 +30,7 @@ public class AddHabit extends AppCompatActivity
 
     private EditText habitNameEditText;
     private LinearLayout checkboxContainer;
-
     private Button back;
-
 
     private List<String> habitList;
 
@@ -42,43 +42,58 @@ public class AddHabit extends AppCompatActivity
 
         habitNameEditText = findViewById(R.id.habitNameEditText);
         checkboxContainer = findViewById(R.id.checkboxContainer);
+
+        habitList = new ArrayList<>();
+
+        // Back action
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+            }
+        };
+        this.getOnBackPressedDispatcher().addCallback(callback);
+
+        // Back button
         back = findViewById(R.id.backButton);
-        if (back == null)
-            Log.e("Error", "The ID 'planStart' was not found");
-        else
-        {
-            back.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    // Go to next screen
-                    Intent intent = new Intent(AddHabit.this, MainWindow.class);
-                    startActivity(intent);
-                }
-            });
-        }
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                /*Intent intent = new Intent(AddHabit.this, MainWindow.class);
+                startActivity(intent);*/
+            }
+        });
     }
 
-    public void onAddHabitClick(View view)
-    {
-        try
-        {
-            String habitName = habitNameEditText.getText().toString().trim();
-            if (!habitName.isEmpty())
-            {
-                createCheckbox(habitName);
-                habitList.add(habitName); // add to the list
-                habitNameEditText.setText(""); // Clear the input field
-            }
-            else
-            {
-                Toast.makeText(this, "Please enter a habit name", Toast.LENGTH_SHORT).show();
+    public void onAddHabitClick(View view) {
+        String habitName = habitNameEditText.getText().toString().trim();
+
+        // Habit name cannot be empty
+        if (habitName.isEmpty()) {
+            Toast.makeText(this, "Habit must have a name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            createCheckbox(habitName);
+            habitList.add(habitName);       // add to list
+            habitNameEditText.setText("");  // clear input field
+
+            Habit habit = new Habit(habitName);
+
+            DatabaseHelper dbHelper = MainWindow.getDatabaseHelper();
+            if (dbHelper != null) {
+                long habitId = habit.saveToDatabase(dbHelper.getWritableDatabase());
+                if (habitId != -1) {
+                    Toast.makeText(this, "Habit added!", Toast.LENGTH_SHORT).show();
+                }
             }
         }
         catch(Exception error)
         {
-            Toast.makeText(this, "Error Adding Habit", Toast.LENGTH_SHORT).show();
+            Log.d("AddHabitDebug", "Error: " + error.toString());
+            Toast.makeText(this, "Failed to add habit", Toast.LENGTH_SHORT).show();
         }
     }
 
