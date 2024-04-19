@@ -13,8 +13,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:gravity="center"
         android:text="@string/HabitTrackerTitle"
         android:textStyle="bold"
@@ -29,43 +29,61 @@
         android:id="@+id/habitNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:hint="Enter Habit Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="683dp"
-        android:onClick="onAddHabitClick"
-        android:text="Add Habit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/HabitHint"
-        android:minHeight="48dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="48dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="48dp"
+        android:hint="@string/HabitHint"
+        app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
-        android:autofillHints=""
-        android:inputType="text" />
+        app:layout_constraintTop_toBottomOf="@id/habitNameEditText">
+
+        <Button
+            android:id="@+id/SubmitPage1"
+            style="@style/MyButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/HabitHint"
+            android:textStyle="bold"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/BackBtn"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/addHabits2"
         style="@style/MyButton"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/AddHabit"
         android:textStyle="bold"
         android:layout_weight="1"
         android:onClick="onAddHabitClick"
         app:layout_constraintEnd_toEndOf="@id/habitNameEditText"
         app:layout_constraintStart_toStartOf="@id/habitNameEditText"
-        app:layout_constraintTop_toBottomOf="@id/habitNameEditText"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <LinearLayout
         android:id="@+id/checkboxContainer"
@@ -74,18 +92,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="198dp"
-        android:text="Back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintbott_toTopOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
