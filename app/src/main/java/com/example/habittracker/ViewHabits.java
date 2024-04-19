@@ -2,6 +2,7 @@ package com.example.habittracker;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +48,9 @@ public class ViewHabits extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewhabits);
+
+        // Catto
+        setBackgroundImage();
 
         // Back action
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
@@ -219,5 +224,13 @@ public class ViewHabits extends AppCompatActivity {
         habit.deleteFromDatabase(dbHelper.getWritableDatabase());
         habitList.remove(position);
         adapter.notifyDataSetChanged();
+    }
+
+    private void setBackgroundImage() {
+        Drawable catto = MainWindow.catto;
+        if (catto == null) return;
+
+        ImageView imageView = this.findViewById(R.id.viewhabits_image);
+        imageView.setImageDrawable(catto);
     }
 }

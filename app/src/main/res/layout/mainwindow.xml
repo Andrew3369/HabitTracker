@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.habittracker.MainWindow">
 
+    <!-- Image -->
+    <ImageView
+        android:id="@+id/mainwindow_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"

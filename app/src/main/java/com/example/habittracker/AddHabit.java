@@ -7,12 +7,15 @@
 
 package com.example.habittracker;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -31,6 +34,9 @@ public class AddHabit extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addhabit);
+
+        // Catto
+        setBackgroundImage();
 
         habitNameEditText = findViewById(R.id.habitNameEditText);
         checkboxContainer = findViewById(R.id.checkboxContainer);
@@ -96,4 +102,11 @@ public class AddHabit extends AppCompatActivity
         checkboxContainer.addView(checkBox);
     }
 
+    private void setBackgroundImage() {
+        Drawable catto = MainWindow.catto;
+        if (catto == null) return;
+
+        ImageView imageView = this.findViewById(R.id.addhabit_image);
+        imageView.setImageDrawable(catto);
+    }
 }
