@@ -13,40 +13,56 @@
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/habits" />
 
     <TextView
-        android:id="@+id/textView"
-        style="@style/MyTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/titleText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="90dp"
-        android:text="HabitTracker!"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/HabitTrackerTitle"
+        android:textStyle="bold"
+        android:fontFamily="@font/Vertically"
+        android:textSize="55sp"
+        android:textAppearance="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/planStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Habit"
+        android:id="@+id/addHabits"
+        style="@style/MyButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:text="@string/AddHabit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/textView"
-        />
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
-        android:id="@+id/viewParties"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="Habits"
+        android:id="@+id/habits"
+        style="@style/MyButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginVertical="10dp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:text="@string/Habits"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
+        app:layout_constraintTop_toBottomOf="@id/addHabits"
+        tools:ignore="VisualLintButtonSize" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
