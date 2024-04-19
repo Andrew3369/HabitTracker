@@ -18,7 +18,7 @@
         android:gravity="center"
         android:text="@string/HabitTrackerTitle"
         android:textStyle="bold"
-        android:fontFamily="@font/Vertically"
+        android:fontFamily="@font/vertically"
         android:textSize="55sp"
         android:textAppearance="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,8 +41,7 @@
         android:onClick="onAddHabitClick"
         android:text="Add Habit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
         android:hint="@string/HabitHint"
         android:minHeight="48dp"
         tools:layout_editor_absoluteX="0dp"

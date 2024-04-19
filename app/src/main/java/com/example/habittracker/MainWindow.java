@@ -27,9 +27,9 @@ public class MainWindow extends AppCompatActivity
         setContentView(R.layout.mainwindow);
 
 
-        startHabit = findViewById(R.id.planStart);
+        startHabit = findViewById(R.id.addHabits);
         if (startHabit == null)
-            Log.e("Error", "The ID 'planStart' was not found");
+            Log.e("Error", "The ID 'addHabits' was not found");
         else
         {
             startHabit.setOnClickListener(new View.OnClickListener()
