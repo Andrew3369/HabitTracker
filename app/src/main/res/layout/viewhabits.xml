@@ -6,14 +6,56 @@
     android:layout_height="match_parent"
     tools:context="com.example.habittracker.ViewHabits">
 
-    <!-- Habits list -->
-    <ListView
-        android:id="@+id/viewhabits_listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/yourTripsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@android:dimen/app_icon_size"
+        android:fontFamily="@font/Vertically"
+        android:gravity="center"
+        android:text="@string/addhabit_textview_title"
+        android:textAppearance="@color/black"
+        android:textSize="55sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/listView"/>
+
+    <!-- ListView containing the users trips -->
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/main"
+        android:dividerHeight="2dp"
+        android:listSelector="@color/main"
+        app:layout_constraintTop_toBottomOf="@id/yourTripsText"/>
+
+    <!-- Layout to align buttons -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listView">
+
+        <!-- Button for moving to next activity -->
+        <Button
+            android:id="@+id/backButton"
+            style="@style/MyButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/BackBtn"
+            android:textStyle="bold"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
