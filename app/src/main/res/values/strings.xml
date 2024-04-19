@@ -6,5 +6,5 @@
     <string name="addhabit_button_add">Add Habit</string>
     <string name="addhabit_button_viewHabits">Habits</string>
     <string name="addhabit_button_hint">Enter Habit Name</string>
-    <string name="BackBtn">Back</string>
+    <string name="addhabit_button_cancel">Cancel</string>
 </resources>

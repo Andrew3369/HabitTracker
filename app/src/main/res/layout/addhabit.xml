@@ -47,22 +47,12 @@
         app:layout_constraintTop_toBottomOf="@id/habitNameEditText">
 
         <Button
-            android:id="@+id/SubmitPage1"
-            style="@style/MyButton"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:text="@string/addhabit_button_hint"
-            android:textStyle="bold"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/backButton"
+            android:id="@+id/cancelButton"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="@string/BackBtn"
+            android:text="@string/addhabit_button_cancel"
             android:textStyle="bold"
             android:layout_weight="1"
             tools:ignore="ButtonStyle" />

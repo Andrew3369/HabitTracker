@@ -44,18 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewhabits_listview">
 
-        <!-- Button for moving to next activity -->
-        <Button
-            android:id="@+id/backButton"
-            style="@style/MyButton"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="@string/BackBtn"
-            android:textStyle="bold"
-            android:layout_weight="1" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

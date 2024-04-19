@@ -7,7 +7,6 @@
 
 package com.example.habittracker;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,11 +18,6 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AddHabit extends AppCompatActivity
 {
@@ -50,8 +44,8 @@ public class AddHabit extends AppCompatActivity
         };
         this.getOnBackPressedDispatcher().addCallback(callback);
 
-        // Back button
-        back = findViewById(R.id.backButton);
+        // Cancel button
+        back = findViewById(R.id.cancelButton);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
