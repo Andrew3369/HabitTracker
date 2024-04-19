@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,7 +62,7 @@ public class ViewHabits extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Initialize ListView
-        ListView listViewHabits = findViewById(R.id.viewhabits_listView);
+        ListView listViewHabits = findViewById(R.id.viewhabits_listview);
         registerForContextMenu(listViewHabits);
 
         // Load habits
@@ -83,11 +84,20 @@ public class ViewHabits extends AppCompatActivity {
                     Habit habit = getItem(position);
                     assert habit != null;
 
-                    // Get the text view
+                    // Habit name
                     TextView habitNameTextView = view.findViewById(R.id.listitem_habit_textview_habitName);
-
-                    // Update its value
                     habitNameTextView.setText(habit.getName());
+
+                    // Habit completed
+                    CheckBox habitCompletedCheckBox = view.findViewById(R.id.listitem_habit_checkbox_habitCompleted);
+                    habitCompletedCheckBox.setChecked(habit.isCompleted());
+                    habitCompletedCheckBox.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            boolean isChecked = ((CheckBox) v).isChecked();
+                            habit.updateCompletionStatus(dbHelper.getWritableDatabase(), isChecked);
+                        }
+                    });
 
                     // Press item to show context menu
                     view.setOnClickListener(new View.OnClickListener() {

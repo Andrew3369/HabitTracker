@@ -7,11 +7,11 @@
     tools:context="com.example.habittracker.ViewHabits">
 
     <TextView
-        android:id="@+id/yourTripsText"
+        android:id="@+id/viewhabits_textview_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@android:dimen/app_icon_size"
-        android:fontFamily="@font/Vertically"
+        android:fontFamily="@font/vertically"
         android:gravity="center"
         android:text="@string/addhabit_textview_title"
         android:textAppearance="@color/black"
@@ -20,17 +20,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/listView"/>
+        app:layout_constraintBottom_toTopOf="@id/viewhabits_listview"/>
 
     <!-- ListView containing the users trips -->
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/viewhabits_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@color/main"
+        android:divider="@color/colorPrimary"
         android:dividerHeight="2dp"
-        android:listSelector="@color/main"
-        app:layout_constraintTop_toBottomOf="@id/yourTripsText"/>
+        android:listSelector="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/viewhabits_textview_title"/>
 
     <!-- Layout to align buttons -->
     <LinearLayout
@@ -42,7 +42,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/listView">
+        app:layout_constraintTop_toBottomOf="@id/viewhabits_listview">
 
         <!-- Button for moving to next activity -->
         <Button
