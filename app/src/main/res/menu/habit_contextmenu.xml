@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/habit_contextmenu_delete"
+        android:title="Delete Habit" />
+</menu>

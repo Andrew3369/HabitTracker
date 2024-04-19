@@ -9,7 +9,6 @@ package com.example.habittracker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainWindow extends AppCompatActivity
 {
-    Button startHabit = null; // start
-    Button viewHabits = null; // view habits
+    Button addHabitButton = null; // start
+    Button habitsButton = null; // view habits
 
     private static DatabaseHelper databaseHelper;
 
@@ -30,22 +29,25 @@ public class MainWindow extends AppCompatActivity
         // Create db helper
         databaseHelper = new DatabaseHelper(this);
 
-        startHabit = findViewById(R.id.addHabits);
-        if (startHabit == null)
-            Log.e("Error", "The ID 'addHabits' was not found");
-        else
-        {
-            startHabit.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    // Go to next screen
-                    Intent intent = new Intent(MainWindow.this, AddHabit.class);
-                    startActivity(intent);
-                }
-            });
-        }
+        // Setup view: ADD HABIT
+        addHabitButton = findViewById(R.id.main_button_addHabit);
+        addHabitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainWindow.this, AddHabit.class);
+                startActivity(intent);
+            }
+        });
+
+        // Setup view: HABITS
+        habitsButton = findViewById(R.id.main_button_viewHabits);
+        habitsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainWindow.this, ViewHabits.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public static DatabaseHelper getDatabaseHelper() {

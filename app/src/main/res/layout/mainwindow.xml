@@ -13,7 +13,7 @@
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/habits" />
+        app:layout_constraintTop_toBottomOf="@id/main_button_viewHabits" />
 
     <TextView
         android:id="@+id/titleText"
@@ -23,7 +23,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:text="@string/HabitTrackerTitle"
+        android:text="@string/addhabit_textview_title"
         android:textStyle="bold"
         android:fontFamily="@font/vertically"
         android:textSize="55sp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/addHabits"
+        android:id="@+id/main_button_addHabit"
         style="@style/MyButton"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -41,7 +41,7 @@
         android:layout_marginEnd="10dp"
         android:textStyle="bold"
         android:layout_weight="1"
-        android:text="@string/AddHabit"
+        android:text="@string/addhabit_button_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
@@ -49,7 +49,7 @@
         tools:ignore="VisualLintButtonSize" />
 
     <Button
-        android:id="@+id/habits"
+        android:id="@+id/main_button_viewHabits"
         style="@style/MyButton"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -58,10 +58,10 @@
         android:layout_marginVertical="10dp"
         android:textStyle="bold"
         android:layout_weight="1"
-        android:text="@string/Habits"
+        android:text="@string/addhabit_button_viewHabits"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addHabits"
+        app:layout_constraintTop_toBottomOf="@id/main_button_addHabit"
         tools:ignore="VisualLintButtonSize" />
 
 

@@ -32,8 +32,6 @@ public class AddHabit extends AppCompatActivity
     private LinearLayout checkboxContainer;
     private Button back;
 
-    private List<String> habitList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -42,8 +40,6 @@ public class AddHabit extends AppCompatActivity
 
         habitNameEditText = findViewById(R.id.habitNameEditText);
         checkboxContainer = findViewById(R.id.checkboxContainer);
-
-        habitList = new ArrayList<>();
 
         // Back action
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
@@ -60,8 +56,6 @@ public class AddHabit extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 finish();
-                /*Intent intent = new Intent(AddHabit.this, MainWindow.class);
-                startActivity(intent);*/
             }
         });
     }
@@ -76,8 +70,6 @@ public class AddHabit extends AppCompatActivity
         }
 
         try {
-            createCheckbox(habitName);
-            habitList.add(habitName);       // add to list
             habitNameEditText.setText("");  // clear input field
 
             Habit habit = new Habit(habitName);

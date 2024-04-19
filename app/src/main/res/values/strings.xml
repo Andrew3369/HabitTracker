@@ -1,6 +1,9 @@
 <resources>
-    <string name="HabitTrackerTitle">HabitTracker!</string>
-    <string name="AddHabit">Add Habit</string>
-    <string name="Habits">Habits</string>
-    <string name="HabitHint">Enter Habit Name</string>
+    <string name="activity_label_addhabits">Add Habit</string>
+    <string name="activity_label_viewhabits">Your Habits</string>
+
+    <string name="addhabit_textview_title">HabitTracker!</string>
+    <string name="addhabit_button_add">Add Habit</string>
+    <string name="addhabit_button_viewHabits">Habits</string>
+    <string name="addhabit_button_hint">Enter Habit Name</string>
 </resources>

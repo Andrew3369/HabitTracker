@@ -9,7 +9,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/HabitTrackerTitle"
+        android:label="@string/addhabit_textview_title"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
 
@@ -18,7 +18,7 @@
         <activity
             android:name=".MainWindow"
             android:exported="true"
-            android:label="@string/HabitTrackerTitle">
+            android:label="@string/addhabit_textview_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,13 +26,14 @@
         </activity>
 
         <activity android:name=".AddHabit"
-            android:label="Adding Habits">
+            android:label="@string/activity_label_addhabits"
+            android:parentActivityName=".MainWindow">
         </activity>
 
-<!--   eventually more activities     -->
-<!--        <activity android:name=".AddHabit"-->
-<!--            android:label="Adding Habits">-->
-<!--        </activity>-->
+        <activity android:name=".ViewHabits"
+            android:label="@string/activity_label_viewhabits"
+            android:parentActivityName=".MainWindow">
+        </activity>
 
 
         <service android:name=".Services" />
