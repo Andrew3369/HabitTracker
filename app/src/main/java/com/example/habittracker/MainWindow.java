@@ -1,7 +1,7 @@
 //Filename:		MainWindow.java
-//Assignment:	A-01
-//Author:		Andrew Babos
-//Student #:	8822549
+//Assignment:	Final Project
+//Author:		Andrew Babos, Hassan Alqhwaizi, Rhys Mccash
+//Student #'s:	8822549,
 //Date:			4/18/2024
 //Description:	Contains the logic neccessary for the MainWindow to work
 
@@ -32,7 +32,8 @@ public class MainWindow extends AppCompatActivity
             Log.e("Error", "The ID 'planStart' was not found");
         else
         {
-            startHabit.setOnClickListener(new View.OnClickListener() {
+            startHabit.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
                 public void onClick(View view)
                 {
@@ -42,7 +43,5 @@ public class MainWindow extends AppCompatActivity
                 }
             });
         }
-
-
     }
 }

@@ -1,3 +1,10 @@
+//Filename:		AddHabit.java
+//Assignment:	Final Project
+//Author:		Andrew Babos, Hassan Alqhwaizi, Rhys Mccash
+//Student #'s:	8822549,
+//Date:			4/18/2024
+//Description:	Contains the logic neccessary for the AddHabit to work
+
 package com.example.habittracker;
 
 import android.content.Intent;
