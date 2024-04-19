@@ -21,11 +21,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 public class AddHabit extends AppCompatActivity
 {
 
     private EditText habitNameEditText;
     private LinearLayout checkboxContainer;
+
+    private Button back;
+
+
+    private List<String> habitList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,21 +42,51 @@ public class AddHabit extends AppCompatActivity
 
         habitNameEditText = findViewById(R.id.habitNameEditText);
         checkboxContainer = findViewById(R.id.checkboxContainer);
+        back = findViewById(R.id.backButton);
+        if (back == null)
+            Log.e("Error", "The ID 'planStart' was not found");
+        else
+        {
+            back.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    // Go to next screen
+                    Intent intent = new Intent(AddHabit.this, MainWindow.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     public void onAddHabitClick(View view)
     {
-        String habitName = habitNameEditText.getText().toString().trim();
-        if (!habitName.isEmpty())
+        try
         {
-            createCheckbox(habitName);
-            habitNameEditText.setText(""); // Clear the input field
+            String habitName = habitNameEditText.getText().toString().trim();
+            if (!habitName.isEmpty())
+            {
+                createCheckbox(habitName);
+                habitList.add(habitName); // add to the list
+                habitNameEditText.setText(""); // Clear the input field
+            }
+            else
+            {
+                Toast.makeText(this, "Please enter a habit name", Toast.LENGTH_SHORT).show();
+            }
         }
-        else
+        catch(Exception error)
         {
-            Toast.makeText(this, "Please enter a habit name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error Adding Habit", Toast.LENGTH_SHORT).show();
         }
     }
+
+//    private void BackButton(String habitName)
+//    {
+//        // intent the list and bring it back to the main screen
+//        Toast.makeText(this, "This works lol", Toast.LENGTH_SHORT).show();
+//    }
 
     private void createCheckbox(String habitName)
     {
@@ -57,4 +94,5 @@ public class AddHabit extends AppCompatActivity
         checkBox.setText(habitName);
         checkboxContainer.addView(checkBox);
     }
+
 }
