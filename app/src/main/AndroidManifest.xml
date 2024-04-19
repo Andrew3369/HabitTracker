@@ -23,9 +23,9 @@
             </intent-filter>
         </activity>
 
-<!--        <activity android:name=".AddHabit"-->
-<!--            android:label="Planning Window">-->
-<!--        </activity>-->
+        <activity android:name=".AddHabit"
+            android:label="Planning Window">
+        </activity>
 
     </application>
 
