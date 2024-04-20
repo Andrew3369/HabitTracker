@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Filename: habit_listitem.xml -->
+<!-- Assignment: Final Project -->
+<!-- Author: Rhys McCash, Andrew Babos, Hassan Alqhwaizi -->
+<!-- Student #: 8825169, 8822549, 8896386 -->
+<!-- Date: 4/19/2024 -->
+<!-- Description: The layout file for listing the habits -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Filename: mainwindow.xml -->
+<!-- Assignment: Final Project -->
+<!-- Author: Rhys McCash, Andrew Babos, Hassan Alqhwaizi -->
+<!-- Student #: 8825169, 8822549, 8896386 -->
+<!-- Date: 4/19/2024 -->
+<!-- Description: The layout file for the main window of the mobile application -->
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -27,6 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_button_viewHabits" />
 
+    <!-- TextView for Title of Activity -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="0dp"
@@ -44,6 +53,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Button to add a habit -->
     <Button
         android:id="@+id/main_button_addHabit"
         style="@style/MyButton"
@@ -60,6 +70,7 @@
         app:layout_constraintTop_toBottomOf="@id/titleText"
         tools:ignore="VisualLintButtonSize" />
 
+    <!-- Button to view habits -->
     <Button
         android:id="@+id/main_button_viewHabits"
         style="@style/MyButton"

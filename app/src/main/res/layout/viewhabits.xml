@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Filename: viewhabits.xml -->
+<!-- Assignment: Final Project -->
+<!-- Author: Rhys McCash, Andrew Babos, Hassan Alqhwaizi -->
+<!-- Student #: 8825169, 8822549, 8896386 -->
+<!-- Date: 4/19/2024 -->
+<!-- Description: The layout file for viewing the habits from the attached database -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,6 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <!-- TextView for Title of Activity -->
     <TextView
         android:id="@+id/viewhabits_textview_title"
         android:layout_width="0dp"
