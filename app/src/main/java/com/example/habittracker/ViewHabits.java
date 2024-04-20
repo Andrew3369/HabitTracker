@@ -100,19 +100,24 @@ public class ViewHabits extends AppCompatActivity {
                     // Habit completed
                     CheckBox habitCompletedCheckBox = view.findViewById(R.id.listitem_habit_checkbox_habitCompleted);
                     habitCompletedCheckBox.setChecked(habit.isCompleted());
-                    habitCompletedCheckBox.setOnClickListener(new View.OnClickListener() {
+
+                    // Hold item to show context menu
+                    view.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
-                        public void onClick(View v) {
-                            boolean isChecked = ((CheckBox) v).isChecked();
-                            habit.updateCompletionStatus(dbHelper.getWritableDatabase(), isChecked);
+                        public boolean onLongClick(View v) {
+                            v.showContextMenu();
+                            return true;
                         }
                     });
 
-                    // Press item to show context menu
+                    // Make whole item clickable to update 'complete' value
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            v.showContextMenu();
+                            CheckBox habitCompletedCheckBox = v.findViewById(R.id.listitem_habit_checkbox_habitCompleted);
+                            boolean isChecked = !habitCompletedCheckBox.isChecked(); // Toggle the checked state
+                            habitCompletedCheckBox.setChecked(isChecked);
+                            habit.updateCompletionStatus(dbHelper.getWritableDatabase(), isChecked);
                         }
                     });
 
