@@ -75,6 +75,11 @@ public class ViewHabits extends AppCompatActivity {
             dbHelper = new DatabaseHelper(this);
             habitList = dbHelper.getAllHabits(); // Retrieve habits from the database
 
+            if (habitList.size() == 0) {
+                Toast.makeText(this, "No habits created yet", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             // Initialize ArrayAdapter with habit names
             adapter = new ArrayAdapter<Habit>(this, android.R.layout.simple_list_item_1, habitList) {
                 @NonNull
@@ -129,7 +134,7 @@ public class ViewHabits extends AppCompatActivity {
             listViewHabits.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "Failed to load habits.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Failed to load habits", Toast.LENGTH_SHORT).show();
         }
     }
 
