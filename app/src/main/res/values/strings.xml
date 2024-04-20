@@ -7,6 +7,7 @@
     <string name="addhabit_button_viewHabits">Habits</string>
     <string name="addhabit_button_hint">Enter Habit Name</string>
     <string name="addhabit_button_cancel">Cancel</string>
+    <string name="addhabit_button_back">Back</string>
 
     <string-array name="habit_frequency_array">
         <item>Daily</item>

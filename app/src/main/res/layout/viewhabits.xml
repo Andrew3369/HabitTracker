@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@android:dimen/app_icon_size"
-        android:fontFamily="@font/vertically"
+        android:fontFamily="@font/bond"
         android:gravity="center"
         android:text="@string/addhabit_textview_title"
         android:textAppearance="@color/black"
