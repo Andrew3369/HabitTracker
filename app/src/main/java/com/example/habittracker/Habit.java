@@ -23,7 +23,7 @@ public class Habit {
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    COLUMN_NAME + " TEXT CHECK(LENGTH(" + COLUMN_NAME + ") <= 50)" +
+                    COLUMN_NAME + " TEXT CHECK(LENGTH(" + COLUMN_NAME + ") <= 50)," +
                     COLUMN_FREQUENCY + " TEXT," +
                     COLUMN_COMPLETED + " INTEGER DEFAULT 0)";
 
