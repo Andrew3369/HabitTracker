@@ -7,16 +7,18 @@
 
 package com.example.habittracker;
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
@@ -28,6 +30,8 @@ public class AddHabit extends AppCompatActivity
     private EditText habitNameEditText;
     private LinearLayout checkboxContainer;
     private Button back;
+
+    String selectedHabitFrequency = "Daily";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,6 +62,30 @@ public class AddHabit extends AppCompatActivity
                 finish();
             }
         });
+
+        // Trip types spinner
+        Spinner spinnerTripType = findViewById(R.id.addhabit_spinner_habitFrequency);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.habit_frequency_array,
+                android.R.layout.simple_spinner_item
+        );
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTripType.setAdapter(adapter);
+
+        spinnerTripType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedHabitFrequency = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
     }
 
     public void onAddHabitClick(View view) {
@@ -72,7 +100,7 @@ public class AddHabit extends AppCompatActivity
         try {
             habitNameEditText.setText("");  // clear input field
 
-            Habit habit = new Habit(habitName);
+            Habit habit = new Habit(habitName, selectedHabitFrequency);
 
             DatabaseHelper dbHelper = MainWindow.getDatabaseHelper();
             if (dbHelper != null) {

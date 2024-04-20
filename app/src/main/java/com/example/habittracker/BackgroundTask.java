@@ -20,8 +20,7 @@ public class BackgroundTask extends AsyncTask<Void, Void, Habit> {
 
     @Override
     protected Habit doInBackground(Void... voids) {
-        List<Habit> allHabits = dbHelper.getAllHabits();
-        return allHabits.get(0);
+        return null;
     }
 
     @Override

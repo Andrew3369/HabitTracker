@@ -41,11 +41,24 @@
         android:id="@+id/habitNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="text"
+        android:maxLength="50"
+        android:maxLines="1"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="48dp"
         android:hint="@string/addhabit_button_hint"
         app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+    <Spinner
+        android:id="@+id/addhabit_spinner_habitFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/habitNameEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
 
     <LinearLayout
         android:id="@+id/buttonLayout"
@@ -56,7 +69,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/habitNameEditText">
+        app:layout_constraintTop_toBottomOf="@id/addhabit_spinner_habitFrequency">
 
         <Button
             android:id="@+id/cancelButton"

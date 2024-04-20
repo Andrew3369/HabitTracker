@@ -93,6 +93,10 @@ public class ViewHabits extends AppCompatActivity {
                     TextView habitNameTextView = view.findViewById(R.id.listitem_habit_textview_habitName);
                     habitNameTextView.setText(habit.getName());
 
+                    // Habit frequency
+                    TextView habitFrequencyTextView = view.findViewById(R.id.listitem_habit_textview_frequency);
+                    habitFrequencyTextView.setText(habit.getFrequency());
+
                     // Habit completed
                     CheckBox habitCompletedCheckBox = view.findViewById(R.id.listitem_habit_checkbox_habitCompleted);
                     habitCompletedCheckBox.setChecked(habit.isCompleted());

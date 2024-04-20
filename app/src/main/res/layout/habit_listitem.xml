@@ -21,6 +21,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="parent" />
 
+    <!-- Habit Frequency -->
+    <TextView
+        android:id="@+id/listitem_habit_textview_frequency"
+        android:layout_width="50dp"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="viewEnd"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/listitem_habit_textview_habitName"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <!-- Habit Completed Button -->
     <CheckBox
         android:id="@+id/listitem_habit_checkbox_habitCompleted"
