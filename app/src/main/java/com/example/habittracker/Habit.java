@@ -1,8 +1,16 @@
 package com.example.habittracker;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import java.util.Calendar;
+import java.util.Objects;
 
 public class Habit {
     public static final String TABLE_NAME = "habits";
@@ -57,6 +65,45 @@ public class Habit {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public void scheduleAlarmForHabit(Context context) {
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, AlarmReceiver.class);
+        intent.putExtra("habitId", this.getId());
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, (int) this.getId(), intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Calculate the next alarm time based on habit's frequency
+        long frequencyMillis;
+
+        if (Objects.equals(this.getFrequency(), "Hourly")) {
+            frequencyMillis = 5000;
+        } else {
+            frequencyMillis = AlarmManager.INTERVAL_DAY;
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+
+        // For hourly frequency, set the alarm to trigger every hour
+        // For daily frequency, set the alarm to trigger every day at a specific time
+        if (Objects.equals(this.getFrequency(), "Hourly")) {
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), frequencyMillis, pendingIntent);
+        } else {
+            // Trigger on 24:00
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+
+            // If the specified time has already passed today, move the alarm to the next day
+            if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
+                calendar.add(Calendar.DAY_OF_YEAR, 1);
+            }
+
+            long nextAlarmTimeMillis = calendar.getTimeInMillis();
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, nextAlarmTimeMillis, frequencyMillis, pendingIntent);
+        }
     }
 
     // Database operations

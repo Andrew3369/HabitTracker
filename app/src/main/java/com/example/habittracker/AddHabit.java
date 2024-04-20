@@ -107,6 +107,9 @@ public class AddHabit extends AppCompatActivity
                 long habitId = habit.saveToDatabase(dbHelper.getWritableDatabase());
                 if (habitId != -1) {
                     Toast.makeText(this, "Habit added!", Toast.LENGTH_SHORT).show();
+
+                    // Alarm to reset habit completion status
+                    habit.scheduleAlarmForHabit(this);
                 }
             }
         }

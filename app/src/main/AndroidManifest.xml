@@ -40,6 +40,15 @@
 
         <service android:name=".Services" />
 
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.habittracker.ALARM_TRIGGERED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
