@@ -78,7 +78,7 @@ public class Habit {
         long frequencyMillis;
 
         if (Objects.equals(this.getFrequency(), "Hourly")) {
-            frequencyMillis = 5000;
+            frequencyMillis = AlarmManager.INTERVAL_HOUR;
         } else {
             frequencyMillis = AlarmManager.INTERVAL_DAY;
         }
