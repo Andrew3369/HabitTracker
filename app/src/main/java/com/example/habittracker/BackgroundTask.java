@@ -1,3 +1,10 @@
+//Filename:		BackgroundTask.java
+//Assignment:	Final Project
+//Author:		Andrew Babos, Hassan Alqhwaizi, Rhys Mccash
+//Student #'s:	8822549, 8896386, 8825169
+//Date:			4/18/2024
+//Description:	Contains the logic neccessary for the Alarm Receiver to work
+
 package com.example.habittracker;
 
 import android.os.AsyncTask;

@@ -1,7 +1,7 @@
 //Filename:		AddHabit.java
 //Assignment:	Final Project
 //Author:		Andrew Babos, Hassan Alqhwaizi, Rhys Mccash
-//Student #'s:	8822549,
+//Student #'s:	8822549, 8896386, 8825169
 //Date:			4/18/2024
 //Description:	Contains the logic neccessary for the AddHabit to work
 
@@ -97,7 +97,8 @@ public class AddHabit extends AppCompatActivity
             return;
         }
 
-        try {
+        try
+        {
             habitNameEditText.setText("");  // clear input field
 
             Habit habit = new Habit(habitName, selectedHabitFrequency);
@@ -119,12 +120,6 @@ public class AddHabit extends AppCompatActivity
             Toast.makeText(this, "Failed to add habit", Toast.LENGTH_SHORT).show();
         }
     }
-
-//    private void BackButton(String habitName)
-//    {
-//        // intent the list and bring it back to the main screen
-//        Toast.makeText(this, "This works lol", Toast.LENGTH_SHORT).show();
-//    }
 
     private void createCheckbox(String habitName)
     {
